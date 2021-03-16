@@ -10,6 +10,8 @@ import { Post } from 'src/app/shared/models/post';
 export class HomeComponent implements OnInit {
   public errorMessage = '';
   public posts: Post[];
+  public pag: number = 1;
+  public contador: number = 1;
 
   constructor(
     private postService: PostService

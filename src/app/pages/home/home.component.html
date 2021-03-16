@@ -31,15 +31,20 @@
                 Um título qualquer
             </h3>
 
-            <article class="blog-post" *ngFor="let post of posts">
+            <article class="blog-post"
+                *ngFor="let post of posts | paginate: { itemsPerPage: contador, currentPage: pag }">
                 <h2 class="blog-post-title">{{post.title}}</h2>
                 <p class="blog-post-meta">Em {{ post.date | date: 'short' }} por <a href="#">{{post.user.name}}.</a></p>
                 <div class="justify" [innerHtml]="post.text"></div>
             </article>
 
             <nav class="blog-pagination" aria-label="Pagination">
-                <a class="btn btn-outline-primary" href="#">Anteriores</a>
-                <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Recentes</a>
+                <div class="text-right">
+                    <pagination-controls previousLabel="Anterior" nextLabel="Próximo" (pageChange)="pag = $event">
+                    </pagination-controls>
+                </div>
+                <!--                 <a class="btn btn-outline-primary" href="#">Anteriores</a>
+                <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Recentes</a> -->
             </nav>
         </div>
 

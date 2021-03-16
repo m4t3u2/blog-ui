@@ -1,2 +1,2 @@
-# blog-ui
+# Blog API
 Blog UI Angular

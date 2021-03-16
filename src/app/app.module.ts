@@ -17,6 +17,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import localePT from '@angular/common/locales/pt';
 import localeExtraPT from '@angular/common/locales/extra/pt';
 import { registerLocaleData } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 registerLocaleData(localePT, 'pt', localeExtraPT);
 
@@ -36,7 +37,8 @@ registerLocaleData(localePT, 'pt', localeExtraPT);
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CKEditorModule
+    CKEditorModule,
+    NgxPaginationModule
   ],
   providers: [
     AuthGuard,
