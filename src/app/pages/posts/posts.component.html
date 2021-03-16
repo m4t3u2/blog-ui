@@ -1,0 +1,24 @@
+<div class="mt-5">
+    <div class="centro col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="card card-container">
+            <div class="card-header">Nova Postagem</div>
+            <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="mb-3 ">
+                        <label for="controlInput1" class="form-label">Título</label>
+                        <input type="text" class="form-control" id="controlInput1" formControlName="titulo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ckEditor1" class="form-label">Postagem</label>
+                        <ckeditor class="form-control" id="ckEditor1" formControlName="texto" [editor]="Editor"
+                            [config]="config">
+                        </ckeditor>
+                    </div>
+                    <div class="d-flex justify-content-end mb-2">
+                        <button [disabled]="!form.valid" class="btn btn-primary" type="submit">Postar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
