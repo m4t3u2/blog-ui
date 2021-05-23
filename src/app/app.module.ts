@@ -18,6 +18,7 @@ import localePT from '@angular/common/locales/pt';
 import localeExtraPT from '@angular/common/locales/extra/pt';
 import { registerLocaleData } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 registerLocaleData(localePT, 'pt', localeExtraPT);
 
@@ -38,7 +39,8 @@ registerLocaleData(localePT, 'pt', localeExtraPT);
     ReactiveFormsModule,
     HttpClientModule,
     CKEditorModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxDatatableModule
   ],
   providers: [
     AuthGuard,

@@ -21,6 +21,7 @@
     "@angular/router": "~9.0.7",
     "@auth0/angular-jwt": "^5.0.2",
     "@ckeditor/ckeditor5-angular": "^2.0.1",
+    "@swimlane/ngx-datatable": "^19.0.0",
     "bootstrap": "^5.0.0-beta1",
     "jquery": "^3.5.1",
     "ngx-pagination": "^5.0.0",

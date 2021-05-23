@@ -1,29 +1,25 @@
-<div class="card mt-5 ml-5">
-    <div class="card-header">
-        Featured
-    </div>
-    <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <table class="table ">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Login</th>
-                    <th scope="col">E-mail</th>
-                    <th scope="col">Bloquear/Desbloquear</th>
-                </tr>
-            </thead>
-            <tbody *ngFor="let user of usuarios">
-                <tr>
-                    <th scope="row">{{user.id}}</th>
-                    <td>{{user.name}}</td>
-                    <td>{{user.username}}</td>
-                    <td>{{user.email}}</td>
-                    <td>Teste</td>
-                </tr>
-            </tbody>
-        </table>
+<div class="mt-5">
+    <div class="centro col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="card card-container">
+            <div class="card-header">Usuários</div>
+            <div class="card-body">
+
+                <div class="d-flex space-between">
+                    <div>
+                        <input type="text" style="padding:8px;" placeholder="Buscar..."
+                            (keyup)="updateFilter($event)" />
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" type="submit">Novo</button>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <ngx-datatable #table [rows]="rows" [columns]="columns" [limit]="limit">
+                    </ngx-datatable>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
