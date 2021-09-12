@@ -3,44 +3,33 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { LoginComponent } from './pages/login/login.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { PostsComponent } from './pages/posts/posts.component';
-import { AuthGuard } from './guards/auth-guard';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { UsuariosComponent } from './pages/usuarios/usuarios.component';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
+import { NavbarComponent } from './shared/navbar/navbar.component';
+
+import { AuthGuard } from './guards/auth-guard';
+import { FormBuilder } from '@angular/forms';
 import localePT from '@angular/common/locales/pt';
 import localeExtraPT from '@angular/common/locales/extra/pt';
 import { registerLocaleData } from '@angular/common';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { ToastrModule } from 'ngx-toastr';
+import { PagesModule } from './pages/pages.module';
 
 registerLocaleData(localePT, 'pt', localeExtraPT);
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    NavbarComponent,
-    LoginComponent,
-    NotFoundComponent,
-    PostsComponent,
-    UsuariosComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    CKEditorModule,
-    NgxPaginationModule,
-    NgxDatatableModule
+    PagesModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true
+    }),
   ],
   providers: [
     AuthGuard,

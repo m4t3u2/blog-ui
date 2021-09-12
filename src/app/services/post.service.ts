@@ -25,9 +25,9 @@ export class PostService extends BaseService<Post>{
     super(http);
   }
 
-  public getAllPublic(): Observable<any> {
-    return this.http.get(this.getUrl() + '/todos', httpOptionsSemAuth).pipe(
-      catchError(this.handleError<Post>(`getAllPublic=${1}`))
+  public buscarTodos(): Observable<any> {
+    return this.http.get(this.getUrl(), httpOptionsSemAuth).pipe(
+      catchError(this.handleError<Post>(`buscarTodos=${1}`))
     );
   }
 

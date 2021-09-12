@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
+import { MensagemService } from 'src/app/services/mensagem.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
@@ -9,15 +11,16 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;
-  isLoggedIn = false;
-  isLoginFailed = false;
-  errorMessage = '';
-  roles: string[] = [];
+  public form: FormGroup;
+  public isLoggedIn = false;
+  public isLoginFailed = false;
+  public errorMessage = '';
+  public roles: string[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private mensagemService: MensagemService,
     private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
@@ -45,7 +48,8 @@ export class LoginComponent implements OnInit {
         this.redirectPage();
       },
       err => {
-        this.errorMessage = err.error.message;
+        this.errorMessage = err.error.message ?? 'Servidor indisponível.';
+        this.mensagemService.mostrarMensagemErro(this.errorMessage);
         this.isLoginFailed = true;
       }
     );

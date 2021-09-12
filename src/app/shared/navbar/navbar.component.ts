@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  isLoggedIn = false;
+  public isLoggedIn = false;
 
   constructor(private authService: AuthService) { }
 

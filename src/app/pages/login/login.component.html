@@ -4,8 +4,29 @@
         <p id="profile-name" class="profile-name-card"></p>
 
         <form class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit()">
-            <input type="text" class="form-control" formControlName="usuario" placeholder="Usuário" required autofocus>
-            <input type="password" class="form-control" formControlName="senha" placeholder="Senha" required>
+            <div>
+                <input type="text" class="form-control" formControlName="usuario" placeholder="Usuário" required
+                    autofocus>
+                    <div *ngIf="form.controls.usuario.touched && form.controls.usuario.errors" class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span>
+                        Enter a valid email address
+                      </div>
+                    <!-- <ng-container *ngIf="form.controls.usuario.touched">
+                        <span *ngIf="form.controls.usuario.errors">
+                            Campo obrigatório
+                        </span>
+                    </ng-container> -->
+                    <!-- <span *ngIf="form.controls.usuario.errors">
+                        Campo obrigatório
+                    </span> -->
+                <!-- <div *ngIf="!usuario.pristine && usuario.errors">
+                    <p *ngIf="usuario.errors.required">Senha é obrigatória.</p>
+                </div> -->
+            </div>
+            <div>
+                <input type="password" class="form-control" formControlName="senha" placeholder="Senha" required>
+            </div>
             <button [disabled]="!form.valid" class="btn btn-lg btn-primary btn-block btn-signin mt-4"
                 type="submit">Entrar</button>
         </form>

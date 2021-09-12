@@ -13,9 +13,8 @@ import * as CustomEditor from '../../vendor/ckeditor5/build/ckeditor';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  form: FormGroup;
-  usuarioLogado: Usuario;
-
+  public form: FormGroup;
+  public usuarioLogado: Usuario;
   public Editor = CustomEditor;
   public config = {
     //Idioma definido no webpack.config.js.

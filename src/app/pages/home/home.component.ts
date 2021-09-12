@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   public errorMessage = '';
   public posts: Post[];
   public pagina: number = 1;
-  public contador: number = 1;
+  public contador: number = 2;
 
   constructor(
     private postService: PostService
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   }
 
   private buscarTodosPosts(): void {
-    this.postService.getAllPublic().subscribe(data => {
+    this.postService.buscarTodos().subscribe(data => {
       this.posts = data;
     },
       err => {
